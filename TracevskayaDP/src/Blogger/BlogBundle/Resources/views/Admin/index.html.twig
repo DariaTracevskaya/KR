@@ -1,0 +1,11 @@
+{% extends 'BloggerBlogBundle::layout.html.twig' %}
+
+{% block title %}Зайти в админку{% endblock%}
+
+
+{% block body_title %}Добро пожаловать на страницу администратора,<b> {{ app.user.username }}!</b> <a href="{{ path('_security_logout') }}" class="btn-primary btn-sm ">Выход</a> {% endblock %}
+
+{% block body_content %}
+    {{  render(controller("BloggerBlogBundle:Admin:getEditUserForm")) }}
+    <hr>
+{% endblock %}

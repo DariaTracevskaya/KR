@@ -1,0 +1,15 @@
+{% extends 'BloggerBlogBundle::layout.html.twig' %}
+
+{% block title %}Регистрация{% endblock%}
+
+{% block body_content %}
+    {% if error %}
+        <div class="error">{{ error.message }}</div>
+        <hr>
+    {% endif %}
+    {{ form_start(form, { 'action': path('_registry_user'), 'method': 'POST'}) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+
+{% endblock %}

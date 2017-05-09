@@ -1,0 +1,45 @@
+_security_login:
+    path:  /login
+    defaults: { _controller: "BloggerBlogBundle:Security:login" }
+
+_security_check:
+    path:  /login_check
+
+_security_logout:
+    path:  /logout
+
+admin_home:
+    path:  /admin/
+    defaults: { _controller: "BloggerBlogBundle:Admin:index" }
+    requirements:
+           methods:  GET
+
+BloggerBlogBundle_admin_add_user:
+    path:  /admin/adduser
+    defaults: { _controller: "BloggerBlogBundle:Admin:addUser" }
+    requirements:
+            methods:  POST
+
+BloggerBlogBundle_admin_delete_user:
+    path:  /admin/deleteuser
+    defaults: { _controller: "BloggerBlogBundle:Admin:deleteUser" }
+    requirements:
+            methods:  POST
+
+BloggerBlogBundle_admin_view_user:
+    path:  /admin/viewuser
+    defaults: { _controller: "BloggerBlogBundle:Admin:ViewUser" }
+    requirements:
+            methods:  POST
+
+BloggerBlogBundle_manager_home:
+    path:  /manager/
+    defaults: { _controller: "BloggerBlogBundle:Manager:index" }
+    requirements:
+           methods:  GET
+
+BloggerBlogBundle_homepage:
+    path:     /
+    defaults: { _controller: "BloggerBlogBundle:Page:index" }
+    requirements:
+         methods:  GET

@@ -1,0 +1,17 @@
+<link href="{{ asset('css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
+<div class="container">
+<h3>Просмотр пользователя <b class="text-danger">{{ user.username }}</b></h3>
+
+{% if message %}
+    <div class="error">{{ message }}</div>
+    <hr>
+{% else %}
+    <p><b>Login:</b> {{ user.username }}</p>
+    <p><b>email:</b> {{ user.email }}</p>
+    <p><b>password:</b> {{ user.password }}</p>
+    <p><b>Role:</b> {{ role.title }}</p>
+{% endif %}
+<p><a href="{{ path('admin_home') }}" class="btn-primary btn">Назад</a></p>
+</div>
+
+

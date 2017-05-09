@@ -1,0 +1,64 @@
+{% if message %}
+    <div class="error">{{ message }}</div>
+    <hr>
+{% endif %}
+
+<div class="tabs">
+    <div class="tab-content">
+        <div class="col-md-6 text-left">
+        <h3>Просмотреть пользователя</h3>
+        <form action="{{ path('BloggerBlogBundle_admin_view_user') }}" method="POST">
+            <div class="form-group">
+                <label for="user">Пользователи:</label>
+                <select class="input-sm" id="user" name="_user">
+                    {% for user in users %}
+                        <option value="{{ user.id }}">{{ user.username }}{% for role in user.getRoles %}: {{ role.getTitle }}{% endfor %}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <input type="submit" class="btn btn-primary" name="login" value="Просмотреть" />
+        </form>
+        </div>
+        <div class="col-md-6 text-right">
+        <h3>Удалить пользователя</h3>
+            <form action="{{ path('BloggerBlogBundle_admin_delete_user') }}" method="POST">
+                <div class="form-group">
+                    <label for="user">Пользователи:</label>
+                    <select class="input-sm" id="user" name="_user">
+                        {% for user in users %}
+                            <option value="{{ user.id }}">{{ user.username }}{% for role in user.getRoles %}: {{ role.getTitle }}{% endfor %}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <input type="submit" class="btn btn-primary" name="login" value="Удалить" />
+            </form>
+        </div>
+
+        <div class="col-md-4 col-md-offset-4">
+        <h3>Добавить пользователя</h3>
+        <form action="{{ path('BloggerBlogBundle_admin_add_user') }}" method="POST">
+            <div class="form-group">
+                <label for="username" style="width: 70px;">Логин:</label>
+                <input type="text" style="width: 170px;" class="input-sm" id="username" name="_username" value="{{ param.last_username }}">
+            </div>
+            <div class="form-group">
+                <label for="useremail" style="width: 70px;">Email:</label>
+                <input type="email" style="width: 170px;" class="input-sm" id="useremail" name="_useremail" value="{{ param.last_useremail }}">
+            </div>
+            <div class="form-group">
+                <label for="password" style="width: 70px;">Пароль:</label>
+                <input type="text" style="width: 170px;" class="input-sm" id="password" name="_userpassword" value="{{ param.last_userpassword }}">
+            </div>
+            <div class="form-group">
+                <label for="userrole" style="width: 70px;">Права:</label>
+                <select class="input-sm" id="userrole" style="width: 170px;" name="_userrole">
+                    {% for role in roles %}
+                        <option value="{{ role.id }}" {% if param.last_userrole == role.id %}selected{% endif %}>{{ role.title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <input type="submit" class="btn btn-primary" style="width: 240px;" name="login" value="Добавить" />
+        </form>
+        </div>
+    </div>
+</div>

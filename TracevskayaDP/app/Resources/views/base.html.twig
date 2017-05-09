@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Контрольная работа{% endblock %}</title>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    {% block stylesheets %}
+        <link href="{{ asset('css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
+    {% endblock %}
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+<div class="container">
+    <div class="text-center" style="padding-top: 5%;">
+<div id="wrapper">
+
+
+    {% block body_title %}
+    {% endblock %}
+    {% block body_content %}
+
+    {% endblock %}
+
+
+</div>
+    </div>
+</div>
+{% block javascripts %}
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+{% endblock %}
+</body>
+</html>

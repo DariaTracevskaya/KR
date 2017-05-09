@@ -1,0 +1,16 @@
+{% extends 'BloggerBlogBundle::layout.html.twig' %}
+
+{% block title %}Пользователь{% endblock%}
+
+
+{% block body_title %}Добро пожаловать на страницу пользователя,<b>  {{ app.user.username }}!</b> <a href="{{ path('_security_logout') }}" class="btn-primary btn-sm ">Выход</a> {% endblock %}
+
+{% block body_content %}
+    <h3 class="text-danger">Мои данные</h3>
+    <hr>
+    <p><b>Login:</b> {{ app.user.username }}</p>
+    <p><b>email:</b> {{ app.user.email }}</p>
+    <p><b>password:</b> {{ app.user.password }}</p>
+    <p><b>Role:</b> Менеджер</p>
+    <hr>
+{% endblock %}
